@@ -1,0 +1,13 @@
+{
+  "name": "trexis-becu-netlify",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22.13.0" },
+  "scripts": {
+    "build": "node scripts/verify.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "preview": "node --env-file=netlify.env scripts/preview.mjs",
+    "sync": "node scripts/sync-source.mjs"
+  }
+}

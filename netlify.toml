@@ -1,0 +1,21 @@
+[build]
+  command = "node scripts/verify.mjs"
+  publish = "site"
+  edge_functions = "netlify/edge-functions"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Declare protection here so routing does not depend on evaluating inline config.
+[[edge_functions]]
+  function = "access"
+  path = "/*"
+
+# Do not enable Split Testing or edge-response caching: both can bypass access checks.
+[build.processing]
+  skip_processing = true
+
+[dev]
+  framework = "#static"
+  publish = "site"
+  port = 8888
